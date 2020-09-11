@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission To Mars!</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars!</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
+    </div>
+    <h2>Latest News</h2>
+    <h3>{{ mars_info.News_Title }}</h3>
+    <p>{{ mars_info.News_Paragraph }}</p>
+    <br>
+    <div class="float-left">
+      <h2>Featured Image</h2>
+      <img src="{{ mars_info.Featured_Image_URL }}" width=70% height=70%/>
+    </div>
+    <div width=20%>
+      <h2>Mars Facts</h2>
+      {{ mars_info.Facts }}
+    </div>
+    <div class="float-left">
+      <h2>Mars Hemispheres</h2>
+      {% for img_url in mars_info.Hemisphere_Image_URLs %}
+        <div class="position-realitve">
+          <img src= "{{ img_url.img_url }}" alt="{{ title }}" width=45% height=45%/>
+          <h3>{{ img_url.title }}</h3>
+        </div> 
+      {% endfor %}
+    </div>
+  </div>
+</body>
+
+</html>
